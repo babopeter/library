@@ -24,18 +24,22 @@ function displayBook() {
 
         const titlePara = document.createElement("p");
         titlePara.textContent = `Title: ${book.title}`;
+        titlePara.classList.add("title");
         bookDiv.appendChild(titlePara);
 
         const authorPara = document.createElement("p");
         authorPara.textContent = `Author: ${book.author}`;
+        authorPara.classList.add("author");
         bookDiv.appendChild(authorPara);
 
         const pagesPara = document.createElement("p");
         pagesPara.textContent = `Pages: ${book.pages}`;
+        pagesPara.classList.add("pages");
         bookDiv.appendChild(pagesPara);
 
         const readPara = document.createElement("p");
         readPara.textContent = `Read: ${book.read ? "Yes" : "No"}`;
+        readPara.classList.add("read");
         bookDiv.appendChild(readPara);
 
         container.appendChild(bookDiv);
