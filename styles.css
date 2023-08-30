@@ -1,0 +1,41 @@
+body {
+    background-color: #18181b;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+#book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1em;
+}
+
+.book {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    background-color: #e4e4e7;
+    padding: 15px;
+    border-radius: 5%;
+}
+
+.title {
+    grid-column: span 3;
+    justify-self: center;
+}
+
+.author {
+    grid-column: span 3;
+    justify-self: center;
+}
+
+.pages {
+    grid-column: 1 / 2;
+}
+
+.read {
+    grid-column: 3 / 4;
+}
