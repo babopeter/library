@@ -1,7 +1,7 @@
 const myLibrary = [
-    new Book("Assassin's Apprentice", "Robin Hobb", 392, "read"),
-    new Book("The Eye of the World", "Robert Jordan", 685, "read"),
-    new Book("The Way of Kings", "Brandon Sanderson", 1007, "unread")
+    new Book("Assassin's Apprentice", "Robin Hobb", 392, true),
+    new Book("The Eye of the World", "Robert Jordan", 685, true),
+    new Book("The Way of Kings", "Brandon Sanderson", 1007, false)
 ];
 
 function Book(title, author, pages, read) {
@@ -17,14 +17,29 @@ function addBookToLibrary() {
 
 function displayBook() {
 
+    const container = document.getElementById("book-container");
+    myLibrary.forEach(book => {
+        const bookDiv = document.createElement("div");
+        bookDiv.classList.add("book");
 
+        const titlePara = document.createElement("p");
+        titlePara.textContent = `Title: ${book.title}`;
+        bookDiv.appendChild(titlePara);
 
-    // const booksUl = document.getElementById('books');
-    // for (let i = 0; i < myLibrary.length; i++) {
-    //     let newLiEl = document.createElement("li");
-    //     booksUl.appendChild(newLiEl);
-    // };
+        const authorPara = document.createElement("p");
+        authorPara.textContent = `Author: ${book.author}`;
+        bookDiv.appendChild(authorPara);
 
+        const pagesPara = document.createElement("p");
+        pagesPara.textContent = `Pages: ${book.pages}`;
+        bookDiv.appendChild(pagesPara);
+
+        const readPara = document.createElement("p");
+        readPara.textContent = `Read: ${book.read ? "Yes" : "No"}`;
+        bookDiv.appendChild(readPara);
+
+        container.appendChild(bookDiv);
+    })
 }
 
 displayBook();
