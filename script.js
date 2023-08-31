@@ -3,6 +3,7 @@ const addBook = document.getElementById("addBook");
 const addAuthor = document.getElementById("addAuthor");
 const confirmBtn = document.getElementById("confirmBtn");
 
+
 const myLibrary = [
     new Book("Assassin's Apprentice", "Robin Hobb", 392, true),
     new Book("The Eye of the World", "Robert Jordan", 685, true),
@@ -18,11 +19,19 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary() {
     // https://stackoverflow.com/questions/46800576/how-to-create-an-object-with-user-input-javascript
+    let book = new Book(
+        "Test Title",
+        document.getElementById('addAuthor').value,
+        "X pages",
+        false,
+    )
+    myLibrary.push(book);
 }
 
 function displayBook() {
-
+    
     const container = document.getElementById("book-container");
+    container.innerHTML = "";
     myLibrary.forEach(book => {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
@@ -60,9 +69,11 @@ showForm.addEventListener("click", () => {
     addBook.showModal();
 })
 
-confirmBtn.addEventListener("click", () => {
-    //addAuthor.value
-    
+confirmBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    addBook.close(addAuthor.value);
+    addBookToLibrary();
+    displayBook();
 })
 
 displayBook();
