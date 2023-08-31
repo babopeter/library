@@ -1,3 +1,8 @@
+const showForm = document.getElementById("showForm");
+const addBook = document.getElementById("addBook");
+const addAuthor = document.getElementById("addAuthor");
+const confirmBtn = document.getElementById("confirmBtn");
+
 const myLibrary = [
     new Book("Assassin's Apprentice", "Robin Hobb", 392, true),
     new Book("The Eye of the World", "Robert Jordan", 685, true),
@@ -50,5 +55,14 @@ function displayBook() {
         container.appendChild(bookDiv);
     })
 }
+
+showForm.addEventListener("click", () => {
+    addBook.showModal();
+})
+
+confirmBtn.addEventListener("click", () => {
+    //addAuthor.value
+    
+})
 
 displayBook();
