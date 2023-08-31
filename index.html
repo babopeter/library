@@ -13,5 +13,21 @@
 <body>
     <h1>Library</h1>
     <div id="book-container"></div>
+    <dialog id="addBook">
+        <form>
+            <p>
+                <label>Author:
+                    <input type="text" id="addAuthor">
+                </label>
+            </p>
+            <div>
+                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button id="confirmBtn" value="default">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+    <p>
+        <button id="showForm">Add new book</button>
+    </p>
 </body>
 </html>
