@@ -23,12 +23,17 @@ function displayBook() {
         bookDiv.classList.add("book");
 
         const titlePara = document.createElement("p");
-        titlePara.textContent = `Title: ${book.title}`;
+        titlePara.textContent = `${book.title}`;
         titlePara.classList.add("title");
         bookDiv.appendChild(titlePara);
 
+        const byPara = document.createElement("p");
+        byPara.textContent = `by`;
+        byPara.classList.add("by");
+        bookDiv.appendChild(byPara);
+
         const authorPara = document.createElement("p");
-        authorPara.textContent = `Author: ${book.author}`;
+        authorPara.textContent = `${book.author}`;
         authorPara.classList.add("author");
         bookDiv.appendChild(authorPara);
 
@@ -38,7 +43,7 @@ function displayBook() {
         bookDiv.appendChild(pagesPara);
 
         const readPara = document.createElement("p");
-        readPara.textContent = `Read: ${book.read ? "Yes" : "No"}`;
+        readPara.textContent = `Status: ${book.read ? "Read" : "Unread"}`;
         readPara.classList.add("read");
         bookDiv.appendChild(readPara);
 
