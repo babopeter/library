@@ -18,7 +18,7 @@ h1 {
 .book {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr 1fr;
     background-color: #e4e4e7;
     padding: 15px;
     border-radius: 5%;
@@ -27,15 +27,30 @@ h1 {
 .title {
     grid-column: span 3;
     justify-self: center;
+    padding: 5px;
+    border: solid black;
+    border-radius: 20%;
+    font-size: 1.2rem;
+}
+
+.by {
+    display: grid;
+    grid-column: 1 / 4;
+    justify-self: center;
+    align-self: center;
 }
 
 .author {
     grid-column: span 3;
     justify-self: center;
+    font-weight: bold;
 }
 
 .pages {
+    display: grid;
     grid-column: 1 / 2;
+    align-items: center;
+    
 }
 
 .read {
