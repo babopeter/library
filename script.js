@@ -4,8 +4,8 @@ const addAuthor = document.getElementById("addAuthor");
 const addTitle = document.getElementById("addTitle");
 const addPageNum = document.getElementById("addPageNum");
 const addReadStatus = document.getElementById("addReadStatus");
-// const addReadStatus = addBook.querySelector("select");
 const confirmBtn = document.getElementById("confirmBtn");
+const cancelBtn = document.getElementById("cancelBtn"); 
 
 
 const myLibrary = [
@@ -22,7 +22,6 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-    // https://stackoverflow.com/questions/46800576/how-to-create-an-object-with-user-input-javascript
     let book = new Book(
         addTitle.value,
         addAuthor.value,
@@ -30,9 +29,7 @@ function addBookToLibrary() {
         addReadStatus.value === "true"
     )
     myLibrary.push(book);
-    console.log(`${addReadStatus.value}`); //
-    // console.log(`${myLibrary[3].read.value}`);
-    
+    console.log(`${addReadStatus.value}`);
 }
 
 function displayBook() {
@@ -83,4 +80,12 @@ confirmBtn.addEventListener("click", (event) => {
     displayBook();
 })
 
+// cancelBtn.addEventListener("click", () => {
+//     addBook.close();
+// })
+
+
 displayBook();
+
+// make fields mandatory
+// reset fields upon adding a book or closing dialogue
