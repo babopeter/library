@@ -8,6 +8,7 @@ const addReadStatus = document.getElementById("addReadStatus");
 const formInputs = [addAuthor, addTitle, addPageNum];
 const confirmBtn = document.getElementById("confirmBtn");
 const cancelBtn = document.getElementById("cancelBtn");
+var counter = 1;
 
 
 const myLibrary = [
@@ -41,6 +42,7 @@ function displayBook() {
     myLibrary.forEach(book => {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
+        bookDiv.setAttribute('booknr', 'book' + counter);
 
         const trashIcon = document.createElement("i");
         trashIcon.classList.add("fa-solid"); 
@@ -73,6 +75,8 @@ function displayBook() {
         bookDiv.appendChild(readPara);
 
         container.appendChild(bookDiv);
+
+        counter++;
     })
 }
 
