@@ -5,6 +5,7 @@ const addAuthor = document.getElementById("addAuthor");
 const addTitle = document.getElementById("addTitle");
 const addPageNum = document.getElementById("addPageNum");
 const addReadStatus = document.getElementById("addReadStatus");
+const formInputs = [addAuthor, addTitle, addPageNum];
 const confirmBtn = document.getElementById("confirmBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 
@@ -76,19 +77,7 @@ showForm.addEventListener("click", () => {
 })
 
 confirmBtn.addEventListener("click", (event) => {
-    // if(!addAuthor.validity.valid) {
-    //     console.log("Not valid");
-    // } else {
-    //     event.preventDefault();
-    //     addBook.close();
-    //     addBookToLibrary();
-    //     displayBook();
-    // }
-
-    addAuthor.required = true;
-    addTitle.required = true;
-    addPageNum.required = true;
-
+    addValidation();
     if(addAuthor.validity.valid && 
         addTitle.validity.valid && 
         addPageNum.validity.valid) {
@@ -97,18 +86,22 @@ confirmBtn.addEventListener("click", (event) => {
         addBookToLibrary();
         displayBook();
     }
-    
 })
 
 
 cancelBtn.addEventListener("click", () => {
-    addAuthor.required = false;
-    addTitle.required = false;
-    addPageNum.required = false;
+    removeValidation();
     addBook.close();
     addBookForm.reset();
 })
 
+function addValidation() {
+    formInputs.forEach((input) => input.required = true);
+}
+
+function removeValidation() {
+    formInputs.forEach((input) => input.required = false);
+}
 
 displayBook();
 
