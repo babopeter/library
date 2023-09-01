@@ -85,6 +85,10 @@ confirmBtn.addEventListener("click", (event) => {
     //     displayBook();
     // }
 
+    addAuthor.required = true;
+    addTitle.required = true;
+    addPageNum.required = true;
+
     if(addAuthor.validity.valid && 
         addTitle.validity.valid && 
         addPageNum.validity.valid) {
