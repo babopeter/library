@@ -1,7 +1,7 @@
 :root {
     --mainCol: #30374F;
     --secondaryCol: #796972;
-    --tertiaryCol: #796972;
+    --tertiaryCol: #b69fac;
     --lightCol: #F9E6D8;
 }
 
@@ -90,3 +90,50 @@ h1 {
     color: var(--lightCol);
 }
 
+#showForm:active {
+    transform: translateY(4px);
+}
+
+#addBook {
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: solid var(--mainCol);
+    border-radius: 5px;
+    background-color: var(--lightCol);
+    color: var(--mainCol);
+}
+
+input {
+    background-color: var(--tertiaryCol);
+    color: var(--mainCol);
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+select {
+    background-color: var(--tertiaryCol);
+    color: var(--mainCol);
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.formButtons button{
+    padding: 5px;
+    border: solid var(--mainCol);
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: var(--lightCol);
+    color: var(--mainCol);
+}
+
+.formButtons button:hover {
+    background-color: var(--mainCol);
+    color: var(--lightCol);
+}
+
+.formButtons button:active {
+    transform: translateY(4px);
+}
