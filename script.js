@@ -76,13 +76,31 @@ showForm.addEventListener("click", () => {
 })
 
 confirmBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    addBook.close();
-    addBookToLibrary();
-    displayBook();
+    // if(!addAuthor.validity.valid) {
+    //     console.log("Not valid");
+    // } else {
+    //     event.preventDefault();
+    //     addBook.close();
+    //     addBookToLibrary();
+    //     displayBook();
+    // }
+
+    if(addAuthor.validity.valid && 
+        addTitle.validity.valid && 
+        addPageNum.validity.valid) {
+        event.preventDefault();
+        addBook.close();
+        addBookToLibrary();
+        displayBook();
+    }
+    
 })
 
+
 cancelBtn.addEventListener("click", () => {
+    addAuthor.required = false;
+    addTitle.required = false;
+    addPageNum.required = false;
     addBook.close();
     addBookForm.reset();
 })
@@ -90,8 +108,6 @@ cancelBtn.addEventListener("click", () => {
 
 displayBook();
 
-// make fields mandatory
-// reset fields upon adding a book or closing dialogue
 // add button on the display to remove books
 // add button to display that changes a books read status
     // first create a function that toggles a books read status
