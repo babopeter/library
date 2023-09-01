@@ -1,5 +1,5 @@
 :root {
-    --mainCol: #30374F;
+    --mainCol: rgb(48, 55, 79);
     --secondaryCol: #796972;
     --tertiaryCol: #b69fac;
     --lightCol: #F9E6D8;
@@ -10,6 +10,7 @@ body {
     background: url(./images/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0;
 }
 
 h1 {
@@ -24,6 +25,8 @@ h1 {
     grid-template-columns: repeat(auto-fit, 250px);
     grid-gap: 1em;
     justify-content: center;
+    background-color: rgba(48, 55, 79, .8);
+    padding: 15px;
 }
 
 .book {
