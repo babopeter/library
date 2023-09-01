@@ -42,6 +42,11 @@ function displayBook() {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
 
+        const trashIcon = document.createElement("i");
+        trashIcon.classList.add("fa-solid"); 
+        trashIcon.classList.add("fa-trash");
+        bookDiv.appendChild(trashIcon);
+
         const titlePara = document.createElement("p");
         titlePara.textContent = `${book.title}`;
         titlePara.classList.add("title");
