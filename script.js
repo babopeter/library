@@ -1,11 +1,12 @@
 const showForm = document.getElementById("showForm");
 const addBook = document.getElementById("addBook");
+const addBookForm = document.getElementById("addBookForm");
 const addAuthor = document.getElementById("addAuthor");
 const addTitle = document.getElementById("addTitle");
 const addPageNum = document.getElementById("addPageNum");
 const addReadStatus = document.getElementById("addReadStatus");
 const confirmBtn = document.getElementById("confirmBtn");
-const cancelBtn = document.getElementById("cancelBtn"); 
+const cancelBtn = document.getElementById("cancelBtn");
 
 
 const myLibrary = [
@@ -33,7 +34,7 @@ function addBookToLibrary() {
 }
 
 function displayBook() {
-    
+
     const container = document.getElementById("book-container");
     container.innerHTML = "";
     myLibrary.forEach(book => {
@@ -70,6 +71,7 @@ function displayBook() {
 }
 
 showForm.addEventListener("click", () => {
+    addBookForm.reset();
     addBook.showModal();
 })
 
@@ -80,12 +82,16 @@ confirmBtn.addEventListener("click", (event) => {
     displayBook();
 })
 
-// cancelBtn.addEventListener("click", () => {
-//     addBook.close();
-// })
+cancelBtn.addEventListener("click", () => {
+    addBook.close();
+    addBookForm.reset();
+})
 
 
 displayBook();
 
 // make fields mandatory
 // reset fields upon adding a book or closing dialogue
+// add button on the display to remove books
+// add button to display that changes a books read status
+    // first create a function that toggles a books read status
