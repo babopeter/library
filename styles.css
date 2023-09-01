@@ -1,11 +1,20 @@
+:root {
+    --mainCol: #30374F;
+    --secondaryCol: #796972;
+    --tertiaryCol: #796972;
+    --lightCol: #F9E6D8;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #18181b;
+    background: url(./images/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 h1 {
     text-align: center;
-    color: white;
+    color: var(--lightCol);
     font-weight: 800;
 }
 
@@ -21,16 +30,18 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 1fr 2fr 1fr;
-    background-color: #e4e4e7;
+    background-color: var(--lightCol);
+    color: var(--mainCol);
     padding: 15px;
     border-radius: 5%;
+    border: solid var(--mainCol)
 }
 
 .title {
     grid-column: span 3;
     justify-self: center;
     padding: 5px;
-    border: solid black;
+    border: solid var(--mainCol);
     border-radius: 20%;
     font-size: 1.2rem;
 }
@@ -58,3 +69,24 @@ h1 {
 .read {
     grid-column: 3 / 4;
 }
+
+.formButton {
+    display: flex;
+    justify-content: center;
+}
+
+#showForm {
+    padding: 15px;
+    border: solid var(--mainCol);
+    border-radius: 25px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: var(--lightCol);
+    color: var(--mainCol);
+}
+
+#showForm:hover {
+    background-color: var(--mainCol);
+    color: var(--lightCol);
+}
+
