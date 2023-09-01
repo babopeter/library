@@ -32,12 +32,22 @@ h1 {
 .book {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 1fr 2fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr;
     background-color: var(--lightCol);
     color: var(--mainCol);
     padding: 15px;
     border-radius: 5%;
     border: solid var(--mainCol)
+}
+
+.fa-solid.fa-trash {
+    grid-column: 3 / 4;
+    justify-self: end;
+    color: rgba(48, 55, 79, .25);
+}
+
+.fa-solid.fa-trash:hover {
+    color: rgba(48, 55, 79, 1);
 }
 
 .title {
