@@ -8,10 +8,6 @@ const addReadStatus = document.getElementById("addReadStatus");
 const formInputs = [addAuthor, addTitle, addPageNum];
 const confirmBtn = document.getElementById("confirmBtn");
 const cancelBtn = document.getElementById("cancelBtn");
-const readBtn = document.getElementsByClassName("read");
-
-
-
 
 const myLibrary = [
     new Book("Assassin's Apprentice", "Robin Hobb", 392, true),
@@ -47,7 +43,7 @@ function displayBook() {
         bookDiv.setAttribute('data-book', counter);
 
         const trashIcon = document.createElement("i");
-        trashIcon.classList.add("fa-solid"); 
+        trashIcon.classList.add("fa-solid");
         trashIcon.classList.add("fa-trash");
         bookDiv.appendChild(trashIcon);
 
@@ -86,7 +82,13 @@ function displayBook() {
             myLibrary.splice(index, 1);
             displayBook();
         })
-        
+
+        // toggle read status when clicked
+        readPara.addEventListener("click", () => {
+            const bookIndex = readPara.parentElement.dataset.book - 1;
+            myLibrary[bookIndex].read = !myLibrary[bookIndex].read;
+            displayBook();
+        })
     })
 }
 
@@ -97,8 +99,8 @@ showForm.addEventListener("click", () => {
 
 confirmBtn.addEventListener("click", (event) => {
     addValidation();
-    if(addAuthor.validity.valid && 
-        addTitle.validity.valid && 
+    if (addAuthor.validity.valid &&
+        addTitle.validity.valid &&
         addPageNum.validity.valid) {
         event.preventDefault();
         addBook.close();
@@ -122,7 +124,3 @@ function removeValidation() {
 }
 
 displayBook();
-
-
-// add button to display that changes a books read status
-    // first create a function that toggles a books read status
