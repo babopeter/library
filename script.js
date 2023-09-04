@@ -8,8 +8,9 @@ const addReadStatus = document.getElementById("addReadStatus");
 const formInputs = [addAuthor, addTitle, addPageNum];
 const confirmBtn = document.getElementById("confirmBtn");
 const cancelBtn = document.getElementById("cancelBtn");
+const readBtn = document.getElementsByClassName("read");
 
-var counter = 1;
+
 
 
 const myLibrary = [
@@ -37,7 +38,7 @@ function addBookToLibrary() {
 }
 
 function displayBook() {
-
+    let counter = 1;
     const container = document.getElementById("book-container");
     container.innerHTML = "";
     myLibrary.forEach(book => {
@@ -123,6 +124,5 @@ function removeValidation() {
 displayBook();
 
 
-// add button on the display to remove books
 // add button to display that changes a books read status
     // first create a function that toggles a books read status
