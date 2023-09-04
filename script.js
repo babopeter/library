@@ -79,14 +79,11 @@ function displayBook() {
 
         counter++;
 
+        // remove book from array when trash icon is clicked
         trashIcon.addEventListener("click", () => {
-            console.log("trash clicked");
-            console.log(trashIcon.parentNode);
-
-            // let index = myLibrary.indexOf();
-            // myLibrary.splice(index, 1);
-            // find a way to get parent's data set and remove it from array
-            // displayBook();
+            let index = myLibrary.indexOf(trashIcon.parentElement.dataset.book);
+            myLibrary.splice(index, 1);
+            displayBook();
         })
         
     })
