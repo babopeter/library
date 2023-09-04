@@ -8,6 +8,7 @@ const addReadStatus = document.getElementById("addReadStatus");
 const formInputs = [addAuthor, addTitle, addPageNum];
 const confirmBtn = document.getElementById("confirmBtn");
 const cancelBtn = document.getElementById("cancelBtn");
+
 var counter = 1;
 
 
@@ -42,7 +43,7 @@ function displayBook() {
     myLibrary.forEach(book => {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
-        bookDiv.setAttribute('booknr', 'book' + counter);
+        bookDiv.setAttribute('data-book', counter);
 
         const trashIcon = document.createElement("i");
         trashIcon.classList.add("fa-solid"); 
@@ -77,6 +78,17 @@ function displayBook() {
         container.appendChild(bookDiv);
 
         counter++;
+
+        trashIcon.addEventListener("click", () => {
+            console.log("trash clicked");
+            console.log(trashIcon.parentNode);
+
+            // let index = myLibrary.indexOf();
+            // myLibrary.splice(index, 1);
+            // find a way to get parent's data set and remove it from array
+            // displayBook();
+        })
+        
     })
 }
 
@@ -97,7 +109,6 @@ confirmBtn.addEventListener("click", (event) => {
     }
 })
 
-
 cancelBtn.addEventListener("click", () => {
     removeValidation();
     addBook.close();
@@ -113,6 +124,7 @@ function removeValidation() {
 }
 
 displayBook();
+
 
 // add button on the display to remove books
 // add button to display that changes a books read status
