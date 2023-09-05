@@ -3,6 +3,7 @@
     --secondaryCol: #796972;
     --tertiaryCol: #b69fac;
     --lightCol: #F9E6D8;
+    --acceptCol: lightgreen;
 }
 
 body {
@@ -41,7 +42,6 @@ h1 {
     color: var(--mainCol);
     padding: 15px;
     border-radius: 15px;
-    /* border: solid var(--mainCol); */
 }
 
 .fa-solid.fa-trash {
@@ -88,7 +88,6 @@ h1 {
 .read {
     grid-column: 3 / 4;
     padding: 5px;
-    /* border: 2px solid var(--mainCol); */
     border-radius: 10px;
     cursor: pointer;
     background-color: var(--mainCol);
@@ -96,8 +95,8 @@ h1 {
 }
 
 .readTrue {
-    background-color: green;
-    color: var(--lightCol);
+    background-color: var(--acceptCol);
+    color: var(--mainCol)
 }
 
 .formButton {
@@ -117,8 +116,6 @@ h1 {
 }
 
 #showForm:hover {
-    /* background-color: var(--mainCol);
-    color: var(--lightCol); */
     cursor: pointer;
     transform: scale(1.2);
 }
@@ -140,35 +137,66 @@ h1 {
     font-size: 1.2rem;
     font-weight: bold;
     border: solid var(--mainCol);
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: var(--lightCol);
     color: var(--mainCol);
 }
 
-input {
-    background-color: var(--tertiaryCol);
+#addBookForm {
+    display: grid;
+    grid-template-rows: 0.5 repeat(5, 1fr);
+    padding: 50px;
+}
+
+legend {
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 25px;
+}
+
+label {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+input, 
+textarea {
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid #999;
     color: var(--mainCol);
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 5px;
+}
+
+textarea {
+    vertical-align: top;
+    height: 5em;
 }
 
 select {
-    background-color: var(--tertiaryCol);
     color: var(--mainCol);
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 5px;
 }
 
+.formButtons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
 .formButtons button{
-    padding: 5px;
+    margin-top: 25px;
     border: solid var(--mainCol);
     border-radius: 25px;
     font-size: 1.2rem;
     font-weight: bold;
     background-color: var(--lightCol);
     color: var(--mainCol);
+    padding: 5px 10px;
 }
 
 .formButtons button:hover {
@@ -178,6 +206,16 @@ select {
 
 .formButtons button:active {
     transform: translateY(4px);
+}
+
+#confirmBtn {
+    background-color: var(--mainCol);
+    color: var(--lightCol);
+}
+
+#confirmBtn:hover {
+    background-color: var(--acceptCol);
+    color: var(--mainCol);
 }
 
 .fa-github {

@@ -16,18 +16,23 @@
     <div id="book-container"></div>
     <dialog id="addBook">
         <form id="addBookForm">
+            <legend>Add a new book</legend>
             <p>
-                <label>Author:
-                    <input type="text" id="addAuthor" required>
-                </label>
-                <label> Title:
-                    <input type="text" id="addTitle" required>
+                <label>Author *
+                    <input type="text" id="addAuthor" placeholder="E.g. R. A. Salvatore" required>
                 </label>
             </p>
             <p>
-                <label>Number of pages:
-                    <input type="number" id="addPageNum" required>
+                <label> Title *
+                    <input type="text" id="addTitle" placeholder="E.g. The Crystal Shard" required>
                 </label>
+            </p>
+            <p>
+                <label>Number of pages *
+                    <input type="number" id="addPageNum" placeholder="E.g. 336" required>
+                </label>
+            </p>
+            <p>
                 <label>Read status:
                     <select id="addReadStatus">
                         <option value="true">Read</option>
