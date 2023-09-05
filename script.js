@@ -76,6 +76,10 @@ function displayBook() {
 
         counter++;
 
+        // toggle class for styling
+        const bookIndex = readPara.parentElement.dataset.book - 1;
+        readPara.classList.toggle("readTrue", myLibrary[bookIndex].read)
+   
         // remove book from array when trash icon is clicked
         trashIcon.addEventListener("click", () => {
             let index = myLibrary.indexOf(trashIcon.parentElement.dataset.book);
@@ -85,7 +89,6 @@ function displayBook() {
 
         // toggle read status when clicked
         readPara.addEventListener("click", () => {
-            const bookIndex = readPara.parentElement.dataset.book - 1;
             myLibrary[bookIndex].read = !myLibrary[bookIndex].read;
             displayBook();
         })
