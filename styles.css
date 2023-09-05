@@ -13,6 +13,10 @@ body {
     margin: 0;
 }
 
+button {
+    border-style: none;
+}
+
 h1 {
     text-align: center;
     color: var(--lightCol);
@@ -36,8 +40,8 @@ h1 {
     background-color: var(--lightCol);
     color: var(--mainCol);
     padding: 15px;
-    border-radius: 5%;
-    border: solid var(--mainCol)
+    border-radius: 15px;
+    /* border: solid var(--mainCol); */
 }
 
 .fa-solid.fa-trash {
@@ -53,10 +57,12 @@ h1 {
 .title {
     grid-column: span 3;
     justify-self: center;
+    align-self: center;
     padding: 5px;
     border: solid var(--mainCol);
-    border-radius: 20%;
-    font-size: 1.2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 .by {
@@ -82,8 +88,16 @@ h1 {
 .read {
     grid-column: 3 / 4;
     padding: 5px;
-    border: 2px solid var(--mainCol);
+    /* border: 2px solid var(--mainCol); */
+    border-radius: 10px;
     cursor: pointer;
+    background-color: var(--mainCol);
+    color: var(--lightCol);
+}
+
+.readTrue {
+    background-color: green;
+    color: var(--lightCol);
 }
 
 .formButton {
@@ -93,21 +107,33 @@ h1 {
 
 #showForm {
     padding: 15px;
-    border: solid var(--mainCol);
     border-radius: 25px;
     font-size: 1.5rem;
     font-weight: bold;
     background-color: var(--lightCol);
     color: var(--mainCol);
+    box-shadow: -4px 6px var(--mainCol);
+    
 }
 
 #showForm:hover {
-    background-color: var(--mainCol);
-    color: var(--lightCol);
+    /* background-color: var(--mainCol);
+    color: var(--lightCol); */
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+#showForm:hover .fa-solid.fa-plus {
+    transform: rotate(180deg);
 }
 
 #showForm:active {
     transform: translateY(4px);
+    box-shadow: none;
+}
+
+.fa-solid.fa-plus {
+    transition: transform 0.3s ease-in-out;
 }
 
 #addBook {
