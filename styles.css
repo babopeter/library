@@ -162,6 +162,7 @@ label {
 input, 
 textarea {
     width: 300px;
+    padding: 10px;
     box-sizing: border-box;
     border: 1px solid #999;
     color: var(--mainCol);
@@ -180,6 +181,11 @@ select {
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 5px;
+}
+
+#addReadStatus {
+    padding: 10px;
+    background-color: white;
 }
 
 .formButtons {
