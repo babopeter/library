@@ -31,49 +31,28 @@ const myLibrary = {
             trashIcon.addEventListener("click", () => this.removeBook(index));
             bookDiv.appendChild(trashIcon);
 
-            const titlePara = document.createElement("p");
-            titlePara.textContent = `${book.title}`;
-            titlePara.classList.add("title");
+            const createPara = (textContent, className) => {
+                const para = document.createElement("p");
+                para.textContent = textContent;
+                para.classList.add(className);
+                return para;
+            };
+
+            const titlePara = createPara(book.title, "title");
+            const byPara = createPara("by", "by");
+            const authorPara = createPara(book.author, "author");
+            const pagesPara = createPara(`Pages: ${book.pages}`, "pages");
+            const readPara = createPara(`Status: ${book.read ? "Read" : "Unread"}`, "read");
+
             bookDiv.appendChild(titlePara);
-
-            const byPara = document.createElement("p");
-            byPara.textContent = `by`;
-            byPara.classList.add("by");
             bookDiv.appendChild(byPara);
-
-            const authorPara = document.createElement("p");
-            authorPara.textContent = `${book.author}`;
-            authorPara.classList.add("author");
             bookDiv.appendChild(authorPara);
-
-            const pagesPara = document.createElement("p");
-            pagesPara.textContent = `Pages: ${book.pages}`;
-            pagesPara.classList.add("pages");
             bookDiv.appendChild(pagesPara);
-
-            const readPara = document.createElement("p");
-            readPara.textContent = `Status: ${book.read ? "Read" : "Unread"}`;
-            readPara.classList.add("read");
             bookDiv.appendChild(readPara);
-
             container.appendChild(bookDiv);
 
-            // toggle class for styling
-            const bookIndex = readPara.parentElement.dataset.book - 1;
-            readPara.classList.toggle("readTrue", this.bookCase[bookIndex].read)
-
-            // remove book from array when trash icon is clicked
-            // trashIcon.addEventListener("click", () => {
-            //     let index = this.bookCase.indexOf(trashIcon.parentElement.dataset.book);
-            //     this.bookCase.splice(index, 1);
-            //     this.displayBook();
-            // })
-
-            // toggle read status when clicked
-            readPara.addEventListener("click", () => {
-                this.bookCase[bookIndex].read = !this.bookCase[bookIndex].read;
-                this.displayBook();
-            })
+            readPara.classList.toggle("readTrue", book.read);
+            readPara.addEventListener("click", () => this.toggleReadStatus(index));
         })
     },
 
@@ -81,6 +60,11 @@ const myLibrary = {
         this.bookCase.splice(index, 1);
         this.displayBook();
     },
+
+    toggleReadStatus: function (index) {
+        this.bookCase[index].read = !this.bookCase[index].read;
+        this.displayBook();
+    }
 }
 
 
