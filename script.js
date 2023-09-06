@@ -1,4 +1,4 @@
-const showForm = document.getElementById("showForm");
+// const showForm = document.getElementById("showForm");
 const addBook = document.getElementById("addBook");
 const addBookForm = document.getElementById("addBookForm");
 const addAuthor = document.getElementById("addAuthor");
@@ -9,11 +9,15 @@ const formInputs = [addAuthor, addTitle, addPageNum];
 const confirmBtn = document.getElementById("confirmBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 
-const myLibrary = [
-    new Book("Assassin's Apprentice", "Robin Hobb", 392, true),
-    new Book("The Eye of the World", "Robert Jordan", 685, true),
-    new Book("The Way of Kings", "Brandon Sanderson", 1007, false)
-];
+const myLibrary = {
+    bookCase: [
+        new Book("Assassin's Apprentice", "Robin Hobb", 392, true),
+        new Book("The Eye of the World", "Robert Jordan", 685, true),
+        new Book("The Way of Kings", "Brandon Sanderson", 1007, false)
+    ],
+    showForm: document.getElementById("showForm"),
+}
+
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -29,7 +33,7 @@ function addBookToLibrary() {
         addPageNum.value,
         addReadStatus.value === "true"
     )
-    myLibrary.push(book);
+    myLibrary.bookCase.push(book);
     console.log(`${addReadStatus.value}`);
 }
 
@@ -37,7 +41,7 @@ function displayBook() {
     let counter = 1;
     const container = document.getElementById("book-container");
     container.innerHTML = "";
-    myLibrary.forEach(book => {
+    myLibrary.bookCase.forEach(book => {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
         bookDiv.setAttribute('data-book', counter);
@@ -78,18 +82,18 @@ function displayBook() {
 
         // toggle class for styling
         const bookIndex = readPara.parentElement.dataset.book - 1;
-        readPara.classList.toggle("readTrue", myLibrary[bookIndex].read)
+        readPara.classList.toggle("readTrue", myLibrary.bookCase[bookIndex].read)
    
         // remove book from array when trash icon is clicked
         trashIcon.addEventListener("click", () => {
-            let index = myLibrary.indexOf(trashIcon.parentElement.dataset.book);
-            myLibrary.splice(index, 1);
+            let index = myLibrary.bookCase.indexOf(trashIcon.parentElement.dataset.book);
+            myLibrary.bookCase.splice(index, 1);
             displayBook();
         })
 
         // toggle read status when clicked
         readPara.addEventListener("click", () => {
-            myLibrary[bookIndex].read = !myLibrary[bookIndex].read;
+            myLibrary.bookCase[bookIndex].read = !myLibrary.bookCase[bookIndex].read;
             displayBook();
         })
     })
