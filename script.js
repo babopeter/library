@@ -17,17 +17,18 @@ const myLibrary = {
     cancelBtn: document.getElementById("cancelBtn"),
 
     displayBook: function () {
-        let counter = 1;
+
         const container = document.getElementById("book-container");
         container.innerHTML = "";
-        this.bookCase.forEach(book => {
+
+        this.bookCase.forEach((book, index) => {
             const bookDiv = document.createElement("div");
             bookDiv.classList.add("book");
-            bookDiv.setAttribute('data-book', counter);
+            bookDiv.dataset.book = index + 1;
 
             const trashIcon = document.createElement("i");
-            trashIcon.classList.add("fa-solid");
-            trashIcon.classList.add("fa-trash");
+            trashIcon.classList.add("fa-solid", "fa-trash");
+            trashIcon.addEventListener("click", () => this.removeBook(index));
             bookDiv.appendChild(trashIcon);
 
             const titlePara = document.createElement("p");
@@ -57,18 +58,16 @@ const myLibrary = {
 
             container.appendChild(bookDiv);
 
-            counter++;
-
             // toggle class for styling
             const bookIndex = readPara.parentElement.dataset.book - 1;
             readPara.classList.toggle("readTrue", this.bookCase[bookIndex].read)
 
             // remove book from array when trash icon is clicked
-            trashIcon.addEventListener("click", () => {
-                let index = this.bookCase.indexOf(trashIcon.parentElement.dataset.book);
-                this.bookCase.splice(index, 1);
-                this.displayBook();
-            })
+            // trashIcon.addEventListener("click", () => {
+            //     let index = this.bookCase.indexOf(trashIcon.parentElement.dataset.book);
+            //     this.bookCase.splice(index, 1);
+            //     this.displayBook();
+            // })
 
             // toggle read status when clicked
             readPara.addEventListener("click", () => {
@@ -76,7 +75,12 @@ const myLibrary = {
                 this.displayBook();
             })
         })
-    }
+    },
+
+    removeBook: function (index) {
+        this.bookCase.splice(index, 1);
+        this.displayBook();
+    },
 }
 
 
