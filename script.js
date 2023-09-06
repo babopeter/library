@@ -64,7 +64,18 @@ const myLibrary = {
     toggleReadStatus: function (index) {
         this.bookCase[index].read = !this.bookCase[index].read;
         this.displayBook();
-    }
+    },
+
+    addBookToLibrary: function() {
+        let book = new Book(
+            this.addTitle.value,
+            this.addAuthor.value,
+            this.addPageNum.value,
+            this.addReadStatus.value === "true"
+        )
+        this.bookCase.push(book);
+        console.log(`${this.addReadStatus.value}`);
+    },
 }
 
 
@@ -73,17 +84,6 @@ function Book(title, author, pages, read) {
     this.author = author
     this.pages = pages
     this.read = read
-}
-
-function addBookToLibrary() {
-    let book = new Book(
-        myLibrary.addTitle.value,
-        myLibrary.addAuthor.value,
-        myLibrary.addPageNum.value,
-        myLibrary.addReadStatus.value === "true"
-    )
-    myLibrary.bookCase.push(book);
-    console.log(`${myLibrary.addReadStatus.value}`);
 }
 
 myLibrary.showForm.addEventListener("click", () => {
@@ -98,7 +98,7 @@ myLibrary.confirmBtn.addEventListener("click", (event) => {
         myLibrary.addPageNum.validity.valid) {
         event.preventDefault();
         myLibrary.addBook.close();
-        addBookToLibrary();
+        myLibrary.addBookToLibrary();
         myLibrary.displayBook();
     }
 })
