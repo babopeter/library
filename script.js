@@ -1,21 +1,21 @@
-// const showForm = document.getElementById("showForm");
-const addBook = document.getElementById("addBook");
-const addBookForm = document.getElementById("addBookForm");
-const addAuthor = document.getElementById("addAuthor");
-const addTitle = document.getElementById("addTitle");
-const addPageNum = document.getElementById("addPageNum");
-const addReadStatus = document.getElementById("addReadStatus");
-const formInputs = [addAuthor, addTitle, addPageNum];
-const confirmBtn = document.getElementById("confirmBtn");
-const cancelBtn = document.getElementById("cancelBtn");
-
 const myLibrary = {
     bookCase: [
         new Book("Assassin's Apprentice", "Robin Hobb", 392, true),
         new Book("The Eye of the World", "Robert Jordan", 685, true),
         new Book("The Way of Kings", "Brandon Sanderson", 1007, false)
     ],
+
     showForm: document.getElementById("showForm"),
+    addBook: document.getElementById("addBook"),
+    addBookForm: document.getElementById("addBookForm"),
+    addAuthor: document.getElementById("addAuthor"),
+    addTitle: document.getElementById("addTitle"),
+    addPageNum: document.getElementById("addPageNum"),
+    addReadStatus: document.getElementById("addReadStatus"),
+    formInputs: [addAuthor, addTitle, addPageNum],
+    confirmBtn: document.getElementById("confirmBtn"),
+    cancelBtn: document.getElementById("cancelBtn"),
+    
 }
 
 
@@ -28,13 +28,13 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary() {
     let book = new Book(
-        addTitle.value,
-        addAuthor.value,
-        addPageNum.value,
-        addReadStatus.value === "true"
+        myLibrary.addTitle.value,
+        myLibrary.addAuthor.value,
+        myLibrary.addPageNum.value,
+        myLibrary.addReadStatus.value === "true"
     )
     myLibrary.bookCase.push(book);
-    console.log(`${addReadStatus.value}`);
+    console.log(`${myLibrary.addReadStatus.value}`);
 }
 
 function displayBook() {
@@ -99,35 +99,35 @@ function displayBook() {
     })
 }
 
-showForm.addEventListener("click", () => {
-    addBookForm.reset();
-    addBook.showModal();
+myLibrary.showForm.addEventListener("click", () => {
+    myLibrary.addBookForm.reset();
+    myLibrary.addBook.showModal();
 })
 
-confirmBtn.addEventListener("click", (event) => {
+myLibrary.confirmBtn.addEventListener("click", (event) => {
     addValidation();
-    if (addAuthor.validity.valid &&
-        addTitle.validity.valid &&
-        addPageNum.validity.valid) {
+    if (myLibrary.addAuthor.validity.valid &&
+        myLibrary.addTitle.validity.valid &&
+        myLibrary.addPageNum.validity.valid) {
         event.preventDefault();
-        addBook.close();
+        myLibrary.addBook.close();
         addBookToLibrary();
         displayBook();
     }
 })
 
-cancelBtn.addEventListener("click", () => {
+myLibrary.cancelBtn.addEventListener("click", () => {
     removeValidation();
-    addBook.close();
-    addBookForm.reset();
+    myLibrary.addBook.close();
+    myLibrary.addBookForm.reset();
 })
 
 function addValidation() {
-    formInputs.forEach((input) => input.required = true);
+    myLibrary.formInputs.forEach((input) => input.required = true);
 }
 
 function removeValidation() {
-    formInputs.forEach((input) => input.required = false);
+    myLibrary.formInputs.forEach((input) => input.required = false);
 }
 
 displayBook();
