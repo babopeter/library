@@ -66,7 +66,7 @@ const myLibrary = {
         this.displayBook();
     },
 
-    addBookToLibrary: function() {
+    addBookToLibrary: function () {
         let book = new Book(
             this.addTitle.value,
             this.addAuthor.value,
@@ -74,18 +74,16 @@ const myLibrary = {
             this.addReadStatus.value === "true"
         )
         this.bookCase.push(book);
-        console.log(`${this.addReadStatus.value}`);
     },
 
-    addValidation: function() {
+    addValidation: function () {
         this.formInputs.forEach((input) => input.required = true);
     },
 
-    removeValidation: function() {
+    removeValidation: function () {
         this.formInputs.forEach((input) => input.required = false);
     }
 }
-
 
 function Book(title, author, pages, read) {
     this.title = title
