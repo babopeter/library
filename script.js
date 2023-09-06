@@ -76,6 +76,14 @@ const myLibrary = {
         this.bookCase.push(book);
         console.log(`${this.addReadStatus.value}`);
     },
+
+    addValidation: function() {
+        this.formInputs.forEach((input) => input.required = true);
+    },
+
+    removeValidation: function() {
+        this.formInputs.forEach((input) => input.required = false);
+    }
 }
 
 
@@ -92,7 +100,7 @@ myLibrary.showForm.addEventListener("click", () => {
 })
 
 myLibrary.confirmBtn.addEventListener("click", (event) => {
-    addValidation();
+    myLibrary.addValidation();
     if (myLibrary.addAuthor.validity.valid &&
         myLibrary.addTitle.validity.valid &&
         myLibrary.addPageNum.validity.valid) {
@@ -104,17 +112,9 @@ myLibrary.confirmBtn.addEventListener("click", (event) => {
 })
 
 myLibrary.cancelBtn.addEventListener("click", () => {
-    removeValidation();
+    myLibrary.removeValidation();
     myLibrary.addBook.close();
     myLibrary.addBookForm.reset();
 })
-
-function addValidation() {
-    myLibrary.formInputs.forEach((input) => input.required = true);
-}
-
-function removeValidation() {
-    myLibrary.formInputs.forEach((input) => input.required = false);
-}
 
 myLibrary.displayBook();
